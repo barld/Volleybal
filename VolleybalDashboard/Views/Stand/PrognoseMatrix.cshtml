@@ -1,0 +1,29 @@
+﻿@model FSVolleybalLogic.MatrixPrognose
+@{
+    ViewBag.Title = "PrognoseMatrix";
+}
+
+<h2>PrognoseMatrix</h2>
+
+@Html.ActionLink("OnSets", "PrognoseMatrixOnSets")
+@Html.ActionLink("OnPoints", "PrognoseMatrixOnPoints")
+
+<table class="table">
+    <tr>
+        @foreach (string opponent in Model.Opponents)
+        {
+            <th>@opponent</th>
+        }
+    </tr>
+    @foreach (var row in Model.Rows)
+    {
+        <tr>
+            <td>@row.Team</td>
+            @foreach(var result in row.Results.Select(r => FSVolleybalLogic.Prognose.ValidFinalStandToString(r).Trim('S')))
+            {
+                <td>@result</td>
+            }
+        </tr>
+    }
+</table>
+

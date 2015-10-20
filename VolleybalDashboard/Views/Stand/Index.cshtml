@@ -1,0 +1,28 @@
+﻿@model Microsoft.FSharp.Collections.FSharpList<FSVolleybalLogic.Team>
+
+@{
+    ViewBag.Title = "Stand";
+}
+
+<h2>Stand</h2>
+
+<table class="table">
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>setPoints</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>@item.Number</td>
+        <td>
+            @item.Name
+        </td>
+        <td>
+            @item.SetPoints
+        </td>
+    </tr>
+}
+
+</table>
